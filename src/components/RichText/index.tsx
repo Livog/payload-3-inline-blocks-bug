@@ -53,6 +53,13 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
     code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
   },
+  inlineBlocks: {
+    AvatarGroup: ({ node }) => {
+      console.log(node)
+      const { avatars } = node.fields
+      return <div>{avatars?.map((avatar, ix) => <div key={ix}></div>)}</div>
+    },
+  },
 })
 
 type Props = {

@@ -1,6 +1,7 @@
 import type { Field } from 'payload'
 
 import {
+  BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
@@ -48,6 +49,29 @@ export const hero: Field = {
             HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
+            BlocksFeature({
+              inlineBlocks: [
+                {
+                  slug: 'AvatarGroup',
+                  interfaceName: 'AvatarGroupBlock',
+                  fields: [
+                    {
+                      name: 'avatars',
+                      type: 'array',
+                      minRows: 1,
+                      maxRows: 6,
+                      fields: [
+                        {
+                          name: 'image',
+                          type: 'upload',
+                          relationTo: 'media',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            }),
           ]
         },
       }),
