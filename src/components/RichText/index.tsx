@@ -21,6 +21,7 @@ import type {
 import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { cn } from '@/utilities/ui'
+import AvatarGroup from './blocks/AvatarGroup'
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -55,9 +56,8 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
   },
   inlineBlocks: {
     AvatarGroup: ({ node }) => {
-      console.log(node)
       const { avatars } = node.fields
-      return <div>{avatars?.map((avatar, ix) => <div key={ix}></div>)}</div>
+      return <AvatarGroup avatars={avatars} />
     },
   },
 })
